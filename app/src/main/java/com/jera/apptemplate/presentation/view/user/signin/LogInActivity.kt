@@ -13,6 +13,7 @@ import com.jera.apptemplate.util.base.BaseViewModel
 import com.jera.apptemplate.util.extension.observe
 import com.jera.apptemplate.util.extension.setOnClickListener
 import org.koin.android.viewmodel.ext.android.viewModel
+import will.shiro.validatetor.return5
 
 class LogInActivity : BaseActivity() {
 
@@ -29,6 +30,7 @@ class LogInActivity : BaseActivity() {
     }
 
     private fun setupUi() {
+        return5()
         with(binding) {
             facebookButton.setOnClickListener(localViewModel::onFacebookButtonClicked)
             googleButton.setOnClickListener(localViewModel::onGoogleButtonClicked)

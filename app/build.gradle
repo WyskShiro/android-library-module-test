@@ -50,6 +50,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation project(':validatetor')
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

@@ -1,0 +1,39 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'will.shiro.validatetor'
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                groupId 'will.shiro.validatetor'
+                artifactId 'androidlibrary'
+                name 'androidlibrary'
+                description 'An android library.'
+                url 'https://github.com/cuttlesoft/android-library-example'
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'wyskshiro'
+                        name 'William Kanashiro'
+                        email 'wyskanashiro@gmail.com'
+                    }
+                }
+
+                scm {
+                    connection 'https://github.com/WyskShiro/android-library-module-test'
+                    developerConnection 'https://github.com/WyskShiro/android-library-module-test'
+                    url 'https://github.com/WyskShiro/android-library-module-test'
+                }
+            }
+        }
+    }
+}

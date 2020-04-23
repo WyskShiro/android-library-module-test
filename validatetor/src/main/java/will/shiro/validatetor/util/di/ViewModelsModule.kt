@@ -6,6 +6,6 @@ import will.shiro.validatetor.presentation.view.dashboard.DashboardViewModel
 
 fun viewModelsModule() = module {
     viewModel {
-        DashboardViewModel()
+        DashboardViewModel(get())
     }
 } 

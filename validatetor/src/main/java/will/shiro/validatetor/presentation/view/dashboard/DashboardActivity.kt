@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
-import will.shiro.validatetor.BuildConfig
 import will.shiro.validatetor.R
 import will.shiro.validatetor.util.extension.shortToast
 import will.shiro.validatetor.util.resource.API_ENDPOINT_NAMED
@@ -19,7 +19,7 @@ internal class DashboardActivity : AppCompatActivity() {
         intent!!.extras!!.getString("URL")
     }
 
-    private val viewModel by viewModels<DashboardViewModel>()
+    private val viewModel by viewModel<DashboardViewModel>()
     private val apiEndPoint by inject<String>(named(API_ENDPOINT_NAMED))
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +27,15 @@ internal class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
         val button = findViewById<Button>(R.id.pokemon_button)
         button.setOnClickListener {
-            shortToast(url + "\n" + apiEndPoint)
+            viewModel.getMyPokemon()
         }
+
+        viewModel.pokemon.observe(this, Observer {
+            shortToast(it.toString())
+        })
+        viewModel.error.observe(this, Observer {
+            shortToast("Deu ruim: $it")
+        })
     }
 
     companion object {

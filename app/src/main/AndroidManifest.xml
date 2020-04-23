@@ -7,44 +7,12 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name="com.jera.apptemplate.presentation.AppTemplateApplication"
         android:allowBackup="true"
         android:icon="@mipmap/launcher_icon"
-        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name="com.jera.apptemplate.presentation.view.splash.SplashActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionbar.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.jera.apptemplate.presentation.view.user.signin.LogInActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionbar" />
-        <activity
-            android:name="com.jera.apptemplate.presentation.view.user.signup.SignUpActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionbar" />
 
-        <activity
-            android:name="com.jera.apptemplate.presentation.view.dashboard.DashboardActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionbar" />
-
-        <activity
-            android:name="com.jera.apptemplate.presentation.view.user.recover.RecoverPasswordActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionbar" />
     </application>
+
 </manifest>

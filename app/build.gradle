@@ -14,10 +14,6 @@ android {
         jvmTarget = "1.8"
     }
 
-    dataBinding {
-        enabled = true
-    }
-
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
@@ -35,15 +31,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "API_ENDPOINT", "\"$rootProject.ext.apiRelease/$rootProject.ext.apiVersion\""
         }
 
         staging {
-            buildConfigField "String", "API_ENDPOINT", "\"$rootProject.ext.apiStaging/$rootProject.ext.apiVersion\""
         }
 
         debug {
-            buildConfigField "String", "API_ENDPOINT", "\"$rootProject.ext.apiStaging/$rootProject.ext.apiVersion\""
         }
     }
 }
@@ -52,39 +45,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':validatetor')
-
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    api "com.squareup.okhttp3:logging-interceptor:$logginInterceptorVersion"
-
-    //coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCore"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesAndroid"
-
-    // androidx
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.0.0'
-
-    //rx permissions
-    implementation "com.github.tbruyelle:rxpermissions:$rxPermissionVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
-
-    // LiveData + ViewModel
-    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-
-    // Androidx Extensions
-    implementation 'androidx.activity:activity:1.1.0'
-    implementation 'androidx.fragment:fragment-ktx:1.2.0'
-
-    // glide
-    implementation "com.github.bumptech.glide:glide:$glideVersion"
-    kapt "com.github.bumptech.glide:compiler:$glideVersion"
-
-    // Koin
-    implementation "org.koin:koin-android:$koinVersion"
-    implementation "org.koin:koin-android-scope:$koinVersion"
-    implementation "org.koin:koin-android-viewmodel:$koinVersion"
 }
 
 // https://github.com/google/dagger/issues/306

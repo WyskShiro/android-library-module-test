@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="will.shiro.validatetor">
 
-    <application>
-        <activity android:name=".MainActivity"></activity>
-    </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
+    <application
+        android:allowBackup="true"
+        android:label="Validatetor"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity android:name=".presentation.view.dashboard.DashboardActivity" />
+    </application>
 </manifest>

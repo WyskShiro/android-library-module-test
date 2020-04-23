@@ -8,9 +8,6 @@ buildscript {
         appName = "App - Template"
         versionCode = 2
         versionName = "1.0.1"
-        apiRelease = "http://apptemplate.jera.com.br"
-        apiStaging = "http://staging.apptemplate.jera.com.br"
-        apiVersion = "v1/"
 
         // Sdk and tools
         compileSdkVersion = 28

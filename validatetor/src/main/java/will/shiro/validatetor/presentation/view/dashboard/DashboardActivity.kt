@@ -6,8 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import org.koin.android.ext.android.inject
+import org.koin.core.qualifier.named
+import will.shiro.validatetor.BuildConfig
 import will.shiro.validatetor.R
 import will.shiro.validatetor.util.extension.shortToast
+import will.shiro.validatetor.util.resource.API_ENDPOINT_NAMED
 
 internal class DashboardActivity : AppCompatActivity() {
 
@@ -16,12 +20,14 @@ internal class DashboardActivity : AppCompatActivity() {
     }
 
     private val viewModel by viewModels<DashboardViewModel>()
+    private val apiEndPoint by inject<String>(named(API_ENDPOINT_NAMED))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         val button = findViewById<Button>(R.id.pokemon_button)
         button.setOnClickListener {
-            shortToast(url)
+            shortToast(url + "\n" + apiEndPoint)
         }
     }
 

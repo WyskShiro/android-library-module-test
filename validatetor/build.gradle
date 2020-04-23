@@ -26,7 +26,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
-        buildConfigField "String", "API_ENDPOINT", "$apiEndpoint"
     }
 
     buildTypes {

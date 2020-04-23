@@ -20,7 +20,6 @@
     </style>
 
     <style name="AppTheme.NoActionbar.Splash">
-        <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
     <style name="ButtonTextAppearance" parent="TextAppearance.AppCompat.Button">
@@ -36,7 +35,6 @@
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:minHeight">44dp</item>
-        <item name="android:background">@drawable/selector_button_accent</item>
     </style>
 
 

@@ -13,9 +13,12 @@ import will.shiro.validatetor.util.viewmodel.placeholder.types.Hide
 import will.shiro.validatetor.util.viewmodel.placeholder.types.Loading
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel(), KoinComponent {
 
+    private val errorHandler: ErrorHandler by inject()
 
     val placeholder: LiveData<Placeholder> get() = _placeholder
     val goTo: LiveData<Event<NavData>> get() = _goTo
@@ -32,6 +35,7 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     protected fun setPlaceholder(throwable: Throwable, retryAction: (() -> Unit)? = null) {
+        setPlaceholder(errorHandler.getPlaceholder(throwable, retryAction))
     }
 
     protected fun setDialog(dialogData: DialogData) {
@@ -43,6 +47,7 @@ abstract class BaseViewModel : ViewModel() {
         retryAction: (() -> Unit)? = null,
         onDismiss: (() -> Unit)? = null
     ) {
+        setDialog(errorHandler.getDialogData(throwable, retryAction, onDismiss))
     }
 
     protected fun goTo(navData: NavData) {

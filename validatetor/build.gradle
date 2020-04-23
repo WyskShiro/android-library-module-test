@@ -12,6 +12,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
@@ -69,6 +73,12 @@ dependencies {
     // glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // Koin
+    implementation "org.koin:koin-android:$koinVersion"
+    compile "org.koin:koin-androidx-scope:$koinVersion"
+    // or Koin for Android Architecture ViewModel
+    compile "org.koin:koin-androidx-viewmodel:$koinVersion"
 
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
